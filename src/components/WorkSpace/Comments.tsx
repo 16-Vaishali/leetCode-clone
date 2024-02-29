@@ -4,7 +4,7 @@ import useGetUserDetails from "@/hooks/useGetUserDetails";
 import { Problem } from "@/utils/types/problem";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {  arrayUnion, doc,  runTransaction, updateDoc } from "firebase/firestore";
+import {  doc,  runTransaction } from "firebase/firestore";
 
 type Props={
     problem:Problem
@@ -22,7 +22,7 @@ const [user] = useAuthState(auth)
         return {userDoc,userRef,problemDoc,problemRef}
       }
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event:any) => {
       setInputValue(event.target.value);
     };
     const handleSubmit = async()=>{
@@ -37,7 +37,7 @@ const [user] = useAuthState(auth)
             transaction.update(problemRef,{comments:prblmComments})
         })
     }
-
+   
     return(
         <>
       
@@ -46,8 +46,8 @@ const [user] = useAuthState(auth)
   {data.currProblem && data.currProblem.comments && data.currProblem.comments.length > 0 ? (
     data.currProblem.comments.map((comment, index) => (
       <div className="bg-gray-600 p-4 my-2 rounded-lg" key={index}>
-        <div className="text-white text-sm italic">{comment.user}</div>
-        <div className="text-white text-lg">{comment.comment}</div>
+        <div className="text-white text-sm italic">{(comment as { comment?: any })?.user}</div>
+        <div className="text-white text-lg">{(comment as { comment?: string })?.comment}</div>
       </div>
     ))
   ) : (

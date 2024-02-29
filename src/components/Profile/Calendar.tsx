@@ -1,8 +1,8 @@
 // components/Calendar.js
 import {motion} from 'framer-motion'
 import { useEffect, useState } from 'react';
-
-const Calendar = ({ importantDates }) => {
+type Props ={importantDates:any}
+const Calendar:React.FC<Props> = ({ importantDates }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
@@ -12,18 +12,18 @@ const Calendar = ({ importantDates }) => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatDate = date => {
+  const formatDate = (date:any) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
 
-  const daysInMonth = (year, month) => {
+  const daysInMonth = (year:number, month:number) => {
     return new Date(year, month + 1, 0).getDate();
   };
 
-  const firstDayOfMonth = (year, month) => {
+  const firstDayOfMonth = (year:number, month:number) => {
     return new Date(year, month, 1).getDay();
   };
 

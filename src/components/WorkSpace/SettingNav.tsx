@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 
-import { AiOutlineFullscreen, AiOutlineFullscreenExit, AiOutlineSetting } from "react-icons/ai";
+import { AiOutlineFullscreen, AiOutlineFullscreenExit } from "react-icons/ai";
 
 
 

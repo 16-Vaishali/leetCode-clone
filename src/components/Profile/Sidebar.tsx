@@ -5,9 +5,11 @@ import { MdVerified } from "react-icons/md";
 import { useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '@/firebase/firebase';
 import { motion } from 'framer-motion';
-type Props = {}
+type Props = {
+percent:number,bg:string
+}
 
-const Sidebar = (props: Props) => {
+const Sidebar = () => {
     const { ...data } = useGetUserDetails();
     const {problems,len} = useGetProblems()
     const easyProblemsCount = problems.filter(problem => problem.difficulty === 'Easy').length;
@@ -32,8 +34,7 @@ const Sidebar = (props: Props) => {
   const updated = createDate(data.updatedAt)
 
 
-
-  const difficultyCounts = {
+  const difficultyCounts:{ [key: string]: number } = {
     Easy: 0,
     Medium: 0,
     Hard: 0
@@ -139,8 +140,8 @@ const percent = (data.solved.length/len)*100;
 
 export default Sidebar
 
-
-const Linear = ({percent,bg})=>{
+ 
+const Linear:React.FC<Props> = ({percent,bg})=>{
   return (
     <div className="relative w-32 h-2 bg-gray-300 rounded-full mx-auto my-3">
   <div

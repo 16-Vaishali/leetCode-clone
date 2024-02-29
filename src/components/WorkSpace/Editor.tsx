@@ -69,7 +69,7 @@ try {
 await runTransaction(firestore, async (transaction) => {
   const { userDoc, userRef } = await returnData(transaction);
  const solvedDatesArray = userDoc.data().solvedDates || [];  
- const existingDateIndex = solvedDatesArray.findIndex(entry => entry.date === date);
+ const existingDateIndex = solvedDatesArray.findIndex((entry:any) => entry.date === date);
    if (existingDateIndex !== -1)
     solvedDatesArray[existingDateIndex].count += 1;
   else   solvedDatesArray.push({ date: date, count: 1 });

@@ -1,4 +1,4 @@
-import { auth, firestore } from "@/firebase/firebase";
+import { auth} from "@/firebase/firebase";
 import Link from "next/link";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Logout from "../Buttons/Logout";
@@ -8,7 +8,6 @@ import Image from "next/image";
 import {SiLeetcode} from 'react-icons/si'
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa'
 import { BsList } from "react-icons/bs";
-import {  doc, getDoc } from "firebase/firestore";
 import Timer from "../Timer/Timer";
 import { useRouter } from "next/router";
 import { problems } from "@/utils/problems";

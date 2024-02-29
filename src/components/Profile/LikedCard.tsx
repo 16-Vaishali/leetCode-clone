@@ -19,14 +19,14 @@ return (
   >
       <h3 className='py-10 text-lg font-bold flex'>{title==='Liked' ? <FaHeart 
       color="red" fontSize={'22'} className="mr-2"/> : <FaStar color="gold" fontSize={'22'} className="mr-2"/>}{title} Problems</h3>
-      {liked.map((item, idx) => (
+      {liked.map((item:any, idx:number) => (
           <motion.h4
               key={idx}
               className='cursor-pointer capitalize'
               onClick={() => router.push(`/${item}`)}
-              whileHover={{ scale: 1.1 }} // Scale up on hover
-              whileTap={{ scale: 0.9 }} // Scale down on tap
-              transition={{ duration: 0.5 }} // Smooth hover transition duration
+              whileHover={{ scale: 1.1 }} 
+              whileTap={{ scale: 0.9 }} 
+              transition={{ duration: 0.5 }} 
           > <Link href={`/problems/${item}`}>
               {idx + 1}. &nbsp; {item} <br/> </Link>
           </motion.h4>

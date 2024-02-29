@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactCalendarHeatmap from 'react-calendar-heatmap';
 import 'react-calendar-heatmap/dist/styles.css';
-
-const Heatmap = ({ values }) => {
+type Props = {values:any}
+const Heatmap:React.FC<Props> = ({ values }) => {
   return (
     <div>
       <ReactCalendarHeatmap
-        startDate={new Date('2024-01-01')} // Change to your desired start date
-        endDate={new Date('2024-12-31')} // Change to your desired end date
+        startDate={new Date('2024-01-01')} 
+        endDate={new Date('2024-12-31')} 
         values={values}
         classForValue={(value) => {
           if (!value) {
@@ -15,8 +15,7 @@ const Heatmap = ({ values }) => {
           }
           return `color-scale-${value.count}`;
         }}
-        tooltipDataAttrs={(value) => {
-          // Optional: Add tooltip data attributes
+        tooltipDataAttrs={(value:any) => {
           return {
             'data-tip': `${value.date}: ${value.count} activities`,
           };

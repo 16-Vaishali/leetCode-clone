@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {IoClose} from 'react-icons/io5'
 import Login from "./Login";
 import { useRecoilValue, useSetRecoilState } from "recoil";
