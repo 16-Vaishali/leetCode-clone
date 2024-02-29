@@ -9,6 +9,10 @@ import {  doc,  runTransaction } from "firebase/firestore";
 type Props={
     problem:Problem
 }
+interface Comment {
+  comment?: any;
+  user?: any; 
+}
 const Comments:React.FC<Props> = ({problem})=>{
 const [user] = useAuthState(auth)
     const {...userData} = useGetUserDetails()
@@ -44,9 +48,9 @@ const [user] = useAuthState(auth)
       <div className="w-full">
   <h2 className="text-xl font-semibold mb-4 text-white">Comments</h2>
   {data.currProblem && data.currProblem.comments && data.currProblem.comments.length > 0 ? (
-    data.currProblem.comments.map((comment, index) => (
+    data.currProblem.comments.map((comment:Comment, index) => (
       <div className="bg-gray-600 p-4 my-2 rounded-lg" key={index}>
-        <div className="text-white text-sm italic">{(comment as { comment?: any })?.user}</div>
+        <div className="text-white text-sm italic">{comment?.user}</div>
         <div className="text-white text-lg">{(comment as { comment?: string })?.comment}</div>
       </div>
     ))
