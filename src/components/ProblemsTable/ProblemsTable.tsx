@@ -103,7 +103,7 @@ const ProblemsTable: React.FC<ProblemsTableProps> = ({ problems }) => {
                 <IoClose
                   fontSize={"35"}
                   className="cursor-pointer absolute -top-16 right-0"
-                  onClick={closeModal}
+                  onClick={closeModal} onMouseUp={closeModal}
                 />
                 <YouTube
                   videoId={youtubePlayer.videoId}

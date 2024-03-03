@@ -12,13 +12,14 @@ type Props = {
 }
 
 const WorkSpace:React.FC<Props>= ({problem}) => {
+  const [success, setsuccess] = useState(false)
+const [solved, setsolved] = useState(false)
 const {width,height} = useWindowSize()
   const {premium} = useGetUserDetails()
   if(premium===false && problem.premiumProblem==true){
     return <Premium/>
   }
-const [success, setsuccess] = useState(false)
-const [solved, setsolved] = useState(false)
+
   return (
     <>
     

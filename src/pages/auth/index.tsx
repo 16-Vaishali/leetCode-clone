@@ -7,9 +7,9 @@ import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useRecoilValue } from 'recoil'
 
-type AuthProps = {}
 
-function Auth({}: AuthProps) {
+
+function Auth() {
   const authModal = useRecoilValue(authModalState)
   const router = useRouter()
   const [user,loading,error] = useAuthState(auth)

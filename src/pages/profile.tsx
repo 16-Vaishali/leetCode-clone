@@ -7,7 +7,7 @@ import {useState,useEffect} from 'react'
 import {MagnifyingGlass} from 'react-loader-spinner'
 
 
-const profile = () => {
+const Profile = () => {
       const importantDates = ['2024-02-14', '2024-02-05']; 
   const {...data} = useGetUserDetails()
   const solvedDates = data.solvedDates;
@@ -83,4 +83,4 @@ const profile = () => {
 }
 
 
-export default profile
+export default Profile

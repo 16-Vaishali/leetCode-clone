@@ -4,7 +4,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Logout from "../Buttons/Logout";
 import { useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtom";
-import Image from "next/image";
 import {SiLeetcode} from 'react-icons/si'
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa'
 import { BsList } from "react-icons/bs";
@@ -51,7 +50,7 @@ ${!problemPage ?"max-w-[1200px] mx-auto" :"" }`}>
 {problemPage && (
   <div className="flex items-center gap-4 flex-1 justify-center">
     <div className="flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2
-    h-8 w-8 cursor-pointer" onClick={()=>handleProblemChange(false)}>
+    h-8 w-8 cursor-pointer" onClick={()=>handleProblemChange(false)} onMouseDown={()=>handleProblemChange(false)}>
       <FaChevronLeft/>
     </div>
     <Link href="/" className="flex items-center gap-2 font-medium max-w-p120px] text-gray cursor-pointer">
@@ -59,7 +58,7 @@ ${!problemPage ?"max-w-[1200px] mx-auto" :"" }`}>
       <p>Problem List</p>
     </Link>
     <div className="flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2
-    h-8 w-8 cursor-pointer" onClick={()=>handleProblemChange(true)}>
+    h-8 w-8 cursor-pointer" onClick={()=>handleProblemChange(true)} onMouseDown={()=>handleProblemChange(false)}>
       <FaChevronRight/>
     </div>
   </div>
@@ -74,8 +73,9 @@ ${!problemPage ?"max-w-[1200px] mx-auto" :"" }`}>
           </div>
           {!user && (
             <Link href="/auth" onClick={()=>{
-				setAuthModalState((prev)=>({...prev,isOpen:true,type:"login"}))
-			}}>
+				setAuthModalState((prev)=>({...prev,isOpen:true,type:"login"}))}}
+        onMouseDown={()=>{
+          setAuthModalState((prev)=>({...prev,isOpen:true,type:"login"}))}}>
               <button className="bg-dark-fill-3 py-1 px-2 cursor-pointer rounded ">
                 Sign In
               </button>
@@ -83,7 +83,7 @@ ${!problemPage ?"max-w-[1200px] mx-auto" :"" }`}>
           )}
     {user && problemPage && <Timer/>}
           {user && (
-            <div className="cursor-pointer group relative px-2" onClick={()=>router.push('/profile')}>
+            <div className="cursor-pointer group relative px-2" onClick={()=>router.push('/profile')} onMouseDown={()=>router.push('/profile')}>
           <RiUserHeartLine fontSize={'35'}/>
               <div
                 className="absolute top-10 left-2/4 -translate-x-2/4  mx-auto bg-dark-layer-1 text-brand-orange p-2 rounded shadow-lg z-40 group-hover:scale-100 scale-0 

@@ -31,12 +31,10 @@ const {query:{ pid } } = useRouter()
     
 
 function getCurrentDate() {
-    const now = new Date();
-    
+    const now = new Date();    
     const year = now.getFullYear();
     const month = String(now.getMonth() + 1).padStart(2, '0'); 
-    const day = String(now.getDate()).padStart(2, '0');
-  
+    const day = String(now.getDate()).padStart(2, '0'); 
     return `${year}-${month}-${day}`;
   }
 
@@ -119,7 +117,9 @@ extensions={[javascript()]} style={{fontSize:settings.fontSize}} onChange={oncha
 </div>
 <div className="flex">
     {problem.examples.map((example,index)=>(
-        <div key={example.id} onClick={()=>setActivetestCaseId(index)} className="mr-2 items-start mt-2 text-white">
+        <div key={example.id} onClick={()=>setActivetestCaseId(index)} 
+        onMouseUp={()=>setActivetestCaseId(index)}
+        className="mr-2 items-start mt-2 text-white">
         <div className="flex items-center flex-wrap gap-y-4">
             <div className={`font-medium items-center transition-all focus:outline-none inline-flex bg-dark-fill-3 
             hover:bg-dark-fill-2 relative rounded-lg px-4 py-1 cursor-pointer whitespace-nowrap ${activetestCaseId === index ? "":"text-gray-500"}`}>

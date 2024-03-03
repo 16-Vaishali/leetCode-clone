@@ -11,9 +11,9 @@ const Footer = () => {
             <div className="flex justify-between items-center px-20 py-6">
                 <div className="w-1/2">
                     <ul className="flex flex-wrap gap-x-10">
-                        <li className="cursor-pointer" onClick={() => router.push('/terms')}>Terms & Conditions</li>
+                        <li className="cursor-pointer" onClick={() => router.push('/terms')}onMouseDown={() => router.push('/terms')}>Terms & Conditions</li>
                         <li className="cursor-pointer">Copyrights @ {new Date().getFullYear()}</li>
-                        <li className="cursor-pointer" onClick={() => router.push('/policy')}>Privacy Policy</li>
+                        <li className="cursor-pointer" onClick={() => router.push('/policy')}onMouseDown={() => router.push('/policy')}>Privacy Policy</li>
                         
                     </ul>
                 </div>

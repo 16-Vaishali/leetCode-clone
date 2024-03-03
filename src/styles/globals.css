@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body{
-  font-family: 'Poppins';
+  font-family: 'Poppins',Helvetica, Arial, Verdana, Tahoma, sans-serif;
 }
 
 
@@ -26,15 +26,15 @@ body{
 .react-calendar-heatmap .color-scale-4 { fill: #d6e685; }
 
 .color-empty {
-  fill: lightgrey; /* or any other color */
+  fill: lightgrey; 
 }
 
 .color-scale-1 {
-  fill: green; /* or any other color */
+  fill: green; 
 }
 
 .color-scale-2 {
-  fill: yellow; /* or any other color */
+  fill: yellow; 
 }
 
 /* split */

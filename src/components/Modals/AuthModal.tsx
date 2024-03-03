@@ -25,7 +25,8 @@ const setAuthModal = useSetRecoilState(authModalState)
 					<div className='bg-white rounded-lg shadow relative w-full bg-gradient-to-b from-brand-orange to-slate-900 mx-6'>
 						<div className='flex justify-end p-2'>
 <button type='button'className='bg-transparent  rounded-lg text-sm p-1.5 ml-auto inline-flex 
- items-center hover:bg-gray-800 hover:text-white text-white' onClick={closeModal}>
+ items-center hover:bg-gray-800 hover:text-white text-white' onClick={closeModal}
+ onMouseDown={closeModal}>
 							<IoClose className="h-5 w-5"/>
                             </button>
 						</div>
@@ -39,18 +40,3 @@ const setAuthModal = useSetRecoilState(authModalState)
 	);
 };
 export default AuthModal;
-//~custom hook but showing error :(
-// function useCloseModal(){
-	// const setAuthModal = useSetRecoilState(authModalState)
-	// const closeModal = ()=> {
-	// 	setAuthModal((prev)=>({...prev,isOpen:false,type:"login"}))
-	// }
-// 	useEffect(()=>{
-// 		const handleEsc = (e:KeyboardEvent)=>{
-// 			if(e.key==="Escape") closeModal
-// 		}
-// 		window.addEventListener("keydown",handleEsc);
-// 		return ()=>window.removeEventListener("keydown",handleEsc)
-// 	},[])
-// 	return closeModal()
-// }
