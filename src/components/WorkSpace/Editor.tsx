@@ -118,7 +118,7 @@ extensions={[javascript()]} style={{fontSize:settings.fontSize}} onChange={oncha
 <div className="flex">
     {problem.examples.map((example,index)=>(
         <div key={example.id} onClick={()=>setActivetestCaseId(index)} 
-        onMouseUp={()=>setActivetestCaseId(index)}
+        role='button'
         className="mr-2 items-start mt-2 text-white">
         <div className="flex items-center flex-wrap gap-y-4">
             <div className={`font-medium items-center transition-all focus:outline-none inline-flex bg-dark-fill-3 
